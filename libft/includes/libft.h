@@ -6,7 +6,7 @@
 /*   By: vsporer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 13:35:39 by vsporer           #+#    #+#             */
-/*   Updated: 2017/10/12 21:35:09 by vsporer          ###   ########.fr       */
+/*   Updated: 2017/11/23 21:26:41 by vsporer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,5 +106,7 @@ int					ft_dprintf(int fd, const char *format, ...);
 void				ft_swap_ptr(void **p1, void **p2);
 size_t				ft_nbrlen(int n);
 char				**ft_split_whitespaces(char *str);
+int					ft_strtablen(char **tab);
+char				**ft_strtabadd(char **tab, const char *str);
 
 #endif

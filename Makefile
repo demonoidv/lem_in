@@ -6,7 +6,7 @@
 #    By: vsporer <vsporer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/20 14:41:19 by vsporer           #+#    #+#              #
-#    Updated: 2017/11/23 17:43:17 by vsporer          ###   ########.fr        #
+#    Updated: 2017/11/23 19:12:47 by vsporer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ PATH_OBJ =			objs/
 CC =				gcc -Wall -Werror -Wextra
 INC =				-I includes/ -I libft/includes/
 
-SRC =				$(PATH_SRC)
+SRC =				$(PATH_SRC)lem_in.c
 
 OBJ =				$(patsubst $(PATH_SRC)%.c, $(PATH_OBJ)%.o, $(SRC))
 

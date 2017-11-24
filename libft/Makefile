@@ -6,7 +6,7 @@
 #    By: vsporer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/15 15:51:49 by vsporer           #+#    #+#              #
-#    Updated: 2017/10/12 21:34:40 by vsporer          ###   ########.fr        #
+#    Updated: 2017/11/23 21:19:02 by vsporer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -130,6 +130,8 @@ SRCS =			$(PATH_BASE)ft_atoi.c\
 				$(PATH_BASE)ft_lstaddback.c\
 				$(PATH_BASE)ft_nbrlen.c\
 				$(PATH_BASE)ft_split_whitespaces.c\
+				$(PATH_BASE)ft_strtablen.c\
+				$(PATH_BASE)ft_strtabadd.c\
 				$(PATH_BASE)ft_swap_ptr.c
 
 OBJ =			$(patsubst $(PATH_BASE)%.c, $(PATH_OBJ)%.o, $(SRCS))\

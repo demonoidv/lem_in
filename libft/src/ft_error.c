@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lem_in.c                                           :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vsporer <vsporer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/23 19:08:38 by vsporer           #+#    #+#             */
-/*   Updated: 2017/12/01 21:12:34 by vsporer          ###   ########.fr       */
+/*   Created: 2017/11/27 14:19:50 by vsporer           #+#    #+#             */
+/*   Updated: 2017/12/01 20:03:39 by vsporer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "libft.h"
 
-int		main(void)
+void	ft_error(int err, char *msg, char mode)
 {
-	t_data	data;
-
-	read_map(&data);
-	check_map(&data);
-	get_path(&data);
-	release_ants(&data);
-	del_data(&data);
-	return (0);
+	if (err <= 0)
+		perror(msg);
+	else if (msg)
+		ft_putendl_fd(msg, 2);
+	if (mode == 'q')
+		exit(err);
 }

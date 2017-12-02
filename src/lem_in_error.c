@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lem_in.c                                           :+:      :+:    :+:   */
+/*   lem_in_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vsporer <vsporer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/23 19:08:38 by vsporer           #+#    #+#             */
-/*   Updated: 2017/12/01 21:12:34 by vsporer          ###   ########.fr       */
+/*   Created: 2017/12/01 21:12:58 by vsporer           #+#    #+#             */
+/*   Updated: 2017/12/02 01:11:43 by vsporer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-int		main(void)
+static char		**create_msg(void)
 {
-	t_data	data;
+	char	*msg[3];
 
-	read_map(&data);
-	check_map(&data);
-	get_path(&data);
-	release_ants(&data);
-	del_data(&data);
-	return (0);
+	msg[0] = NULL;
+	msg[1] = "lem_in: ants error";
+	msg[2] = "lem_in: malloc() error";
+	return ((char**)msg);
+}
+
+void			lem_in_error(int err, t_data *data)
+{
+	char	**msg;
+
+	msg = create_msg();
+	del_data(data);
+	ft_error(err, msg[err], 'q');
 }

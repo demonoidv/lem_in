@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lem_in.c                                           :+:      :+:    :+:   */
+/*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vsporer <vsporer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/23 19:08:38 by vsporer           #+#    #+#             */
-/*   Updated: 2017/12/01 21:12:34 by vsporer          ###   ########.fr       */
+/*   Created: 2017/12/01 20:08:13 by vsporer           #+#    #+#             */
+/*   Updated: 2017/12/02 01:13:04 by vsporer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-int		main(void)
+void	read_map(t_data *data)
 {
-	t_data	data;
+	char	*line;
 
-	read_map(&data);
-	check_map(&data);
-	get_path(&data);
-	release_ants(&data);
-	del_data(&data);
-	return (0);
+	line = NULL;
+	data->input = NULL;
+	while (get_next_line(0, &line) > 0 && !check_in(line, data))
+	{
+		if (ft_strtabadd(&(data->input), line))
+		{
+			ft_strdel(&line);
+			lem_in_error(DEFAULT, data);
+		}
+		line = NULL;
+	}
+	ft_strdel(&line);
 }

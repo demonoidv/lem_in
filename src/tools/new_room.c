@@ -6,13 +6,13 @@
 /*   By: vsporer <vsporer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 17:08:44 by vsporer           #+#    #+#             */
-/*   Updated: 2017/12/11 18:51:42 by vsporer          ###   ########.fr       */
+/*   Updated: 2017/12/12 16:20:08 by vsporer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static t_room	**roomalloc(t_data *data)
+static t_room	*roomalloc(t_data *data)
 {
 	int		i;
 	int		size;
@@ -20,11 +20,8 @@ static t_room	**roomalloc(t_data *data)
 
 	i = 0;
 	size = 0;
-	if (!data->room)
-		size = 1;
-	else
-		while ((data->room)[size])
-			size++;
+	while (data->room && (data->room)[size])
+		size++;
 	size++;
 	if (!(new = (t_room**)malloc(sizeof(t_room*) * (size + 1))))
 		lem_in_error(DEFAULT, data);
@@ -45,7 +42,6 @@ void			new_room(char *name, int x,  int y, t_data *data)
 {
 	t_room	*new;
 
-	i = 0;
 	new = roomalloc(data);
 	new->i = 0;
 	new->name = name;

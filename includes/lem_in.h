@@ -6,7 +6,7 @@
 /*   By: vsporer <vsporer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/23 19:06:21 by vsporer           #+#    #+#             */
-/*   Updated: 2017/12/11 19:20:36 by vsporer          ###   ########.fr       */
+/*   Updated: 2017/12/12 16:36:42 by vsporer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,12 @@ void			check_map(t_data *data);
 /*
 ** Algorithm
 */
-void			get_path(t_data *data);
-void			release_ants(t_data *data);
+//void			get_path(t_data *data);
+//void			release_ants(t_data *data);
 /*
 ** Tools
 */
-void			add_pipe(t_room *one, t_room *two);
+void			add_pipe(t_room ***pipe, t_room *to, t_data *data);
 void			new_room(char *name, int x, int y, t_data *data);
 void			del_room_tab(t_room **room);
 void			del_data(t_data *data);

@@ -6,7 +6,7 @@
 #    By: vsporer <vsporer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/20 14:41:19 by vsporer           #+#    #+#              #
-#    Updated: 2017/12/11 19:19:56 by vsporer          ###   ########.fr        #
+#    Updated: 2017/12/12 16:14:01 by vsporer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,14 @@ C_RESET =			\033[0m
 C_OK =				\033[32m
 C_DEL =				\033[31m
 C_SRC =				\033[44m
-C_READ =			\033[34;44m
+C_READ =			\033[35;44m
 C_ALGO =			\033[33;44m
 C_TOOLS =			\033[36;44m
 
 PATH_LIBFT =		libft/
 PATH_SRC =			src/
 PATH_OBJ =			objs/
-PATH_READ = 		$(PATH_SRC)read/
+PATH_READ = 		$(PATH_SRC)map/
 PATH_ALGO = 		$(PATH_SRC)algo/
 PATH_TOOLS = 		$(PATH_SRC)tools/
 
@@ -37,9 +37,9 @@ SRC =				$(PATH_SRC)lem_in.c\
 READ =				$(PATH_READ)read_map.c\
 					$(PATH_READ)check_in.c
 
-ALGO =				$(PATH_ALGO)get_path.c\
-					$(PATH_ALGO)release_ants.c
-
+#ALGO =				$(PATH_ALGO)get_path.c\
+#					$(PATH_ALGO)release_ants.c
+#
 TOOLS =				$(PATH_TOOLS)del_data.c\
 					$(PATH_TOOLS)del_room.c\
 					$(PATH_TOOLS)add_pipe.c\

@@ -6,7 +6,7 @@
 /*   By: vsporer <vsporer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 12:49:56 by vsporer           #+#    #+#             */
-/*   Updated: 2017/12/12 01:21:14 by vsporer          ###   ########.fr       */
+/*   Updated: 2017/12/12 16:18:23 by vsporer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	check_room(char *line, t_data *data)
 	char	**room;
 
 	j = 0;
-	if (!(room = ft_split_whitespace(line)))
+	if (!(room = ft_split_whitespaces(line)))
 		lem_in_error(DEFAULT, data);
 	else if (ft_strtablen(room) == 3)
 	{
@@ -59,6 +59,8 @@ static int	check_room(char *line, t_data *data)
 static int	check_pipe(char *line, int *mode, t_data *data)
 {
 	char	**pipe;
+	t_room	*one;
+	t_room	*two;
 
 	if (*mode != 2)
 		*mode = 2;
@@ -66,10 +68,12 @@ static int	check_pipe(char *line, int *mode, t_data *data)
 		lem_in_error(DEFAULT, data);
 	else if (ft_strtablen(pipe) == 2)
 	{
-		if (search_room(pipe[0], data->room) && \
-		search_room(pipe[1], data->room))
+		if ((one = search_room(pipe[0], data->room)) && \
+		(two = search_room(pipe[1], data->room)))
 		{
-			
+			add_pipe(&(one->pipe), two, data);
+			add_pipe(&(two->pipe), one, data);
+			return (0);
 		}
 	}
 	return (1);

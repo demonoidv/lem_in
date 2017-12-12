@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtabadd.c                                     :+:      :+:    :+:   */
+/*   del_data.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vsporer <vsporer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/23 21:11:08 by vsporer           #+#    #+#             */
-/*   Updated: 2017/12/12 16:41:54 by vsporer          ###   ########.fr       */
+/*   Created: 2017/12/12 15:43:39 by vsporer           #+#    #+#             */
+/*   Updated: 2017/12/12 16:04:31 by vsporer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "lem_in.h"
 
-int		ft_strtabadd(char ***tab, char *str)
+void	del_tab(char ***tab)
 {
-	int		len;
-	char	**new;
+	int		i;
 
-	if (!str)
-		return (0);
-	len = ft_strtablen(*tab);
-	len++;
-	if ((new = (char**)malloc(sizeof(char*) * (len + 1))))
-	{
-		len--;
-		new[len + 1] = NULL;
-		new[len] = str;
-		while (*tab && --len >= 0)
-			new[len] = (*tab)[len];
-		ft_memdel((void**)tab);
-		*tab = new;
-		return (0);
-	}
-	else
-		return (1);
+	i = -1;
+	while (*tab && (*tab)[++i])
+		ft_strdel(&((*tab)[i]));
+	ft_memdel((void**)tab);
+}
+
+void	del_data(t_data *data)
+{
+	int		i;
+
+	i = -1;
+	del_tab(&(data->input));
+	while (data->path && (data->path)[++i])
+		del_tab(&((data->path)[i]));
+	ft_memdel((void**)&(data->path));
+	del_room_tab(data->room);
 }

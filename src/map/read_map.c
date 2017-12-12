@@ -6,7 +6,7 @@
 /*   By: vsporer <vsporer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 20:08:13 by vsporer           #+#    #+#             */
-/*   Updated: 2017/12/11 16:07:11 by vsporer          ###   ########.fr       */
+/*   Updated: 2017/12/12 16:37:08 by vsporer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	read_map(t_data *data)
 
 	line = NULL;
 	data->input = NULL;
-	while (get_next_line(stdin, &line) > 0 && !check_in(line, data))
+	while (get_next_line(0, &line) > 0 && !check_in(line, data))
 	{
 		if (ft_strtabadd(&(data->input), line))
 		{

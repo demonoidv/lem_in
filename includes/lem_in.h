@@ -6,7 +6,7 @@
 /*   By: vsporer <vsporer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/23 19:06:21 by vsporer           #+#    #+#             */
-/*   Updated: 2017/12/02 05:12:43 by vsporer          ###   ########.fr       */
+/*   Updated: 2017/12/11 19:20:36 by vsporer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,17 @@
 # define DEFAULT 0
 # define ANTS 1
 
+typedef struct	s_pos
+{
+	int		x;
+	int		y;
+}				t_pos;
+
 typedef struct	s_room
 {
 	int				i;
 	char			*name;
+	t_pos			pos;
 	struct s_room	**pipe;
 }				t_room;
 
@@ -55,6 +62,9 @@ void			release_ants(t_data *data);
 ** Tools
 */
 void			add_pipe(t_room *one, t_room *two);
+void			new_room(char *name, int x, int y, t_data *data);
+void			del_room_tab(t_room **room);
 void			del_data(t_data *data);
+t_room			*search_room(char *name, t_room **room);
 
 #endif

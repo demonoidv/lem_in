@@ -6,7 +6,7 @@
 #    By: vsporer <vsporer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/20 14:41:19 by vsporer           #+#    #+#              #
-#    Updated: 2017/12/01 21:11:34 by vsporer          ###   ########.fr        #
+#    Updated: 2017/12/11 19:19:56 by vsporer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,10 @@ ALGO =				$(PATH_ALGO)get_path.c\
 					$(PATH_ALGO)release_ants.c
 
 TOOLS =				$(PATH_TOOLS)del_data.c\
-					$(PATH_TOOLS)add_pipe.c
+					$(PATH_TOOLS)del_room.c\
+					$(PATH_TOOLS)add_pipe.c\
+					$(PATH_TOOLS)search_room.c\
+					$(PATH_TOOLS)new_room.c
 
 OBJ =				$(patsubst $(PATH_SRC)%.c, $(PATH_OBJ)%.o, $(SRC))\
 					$(patsubst $(PATH_READ)%.c, $(PATH_OBJ)%.o, $(READ))\

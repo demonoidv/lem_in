@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map.c                                         :+:      :+:    :+:   */
+/*   search_room.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vsporer <vsporer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/01 20:08:13 by vsporer           #+#    #+#             */
-/*   Updated: 2017/12/11 16:07:11 by vsporer          ###   ########.fr       */
+/*   Created: 2017/12/11 19:20:08 by vsporer           #+#    #+#             */
+/*   Updated: 2017/12/11 19:24:23 by vsporer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void	read_map(t_data *data)
+t_room	*search_room(char *name, t_room **room)
 {
-	char	*line;
+	int		i;
 
-	line = NULL;
-	data->input = NULL;
-	while (get_next_line(stdin, &line) > 0 && !check_in(line, data))
+	i = 0;
+	if (name && room)
 	{
-		if (ft_strtabadd(&(data->input), line))
-		{
-			ft_strdel(&line);
-			lem_in_error(DEFAULT, data);
-		}
-		line = NULL;
+		while (room[i] && ft_strcmp(name, (room[i])->name))
+			i++;
+		return (room[i]);
 	}
-	ft_strdel(&line);
+	else
+		return (NULL);
 }

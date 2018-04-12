@@ -138,3 +138,7 @@ Utilisez la commande suivant pour compiler les souces:
 
 	make
 l’exécutable lem-in sera créé a la racine du projet.
+## Auteurs
+
+* **[Gregory Colletto](https://github.com/Gcol)**
+* **[Sporer Valentin](https://github.com/demonoidv)**

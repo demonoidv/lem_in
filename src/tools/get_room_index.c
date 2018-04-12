@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_pipe.c                                         :+:      :+:    :+:   */
+/*   get_room_index.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vsporer <vsporer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/11 19:28:40 by vsporer           #+#    #+#             */
-/*   Updated: 2017/12/12 16:17:33 by vsporer          ###   ########.fr       */
+/*   Created: 2018/01/27 14:40:15 by vsporer           #+#    #+#             */
+/*   Updated: 2018/01/27 14:42:24 by vsporer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
+#include "visu_lem_in.h"
 
-void	add_pipe(t_room ***pipe, t_room *to, t_data *data)
+int		get_room_index(t_room **rooms, t_room *src)
 {
 	int		i;
-	t_room	**new;
 
 	i = 0;
-	while (*pipe && (*pipe)[i])
+	while (rooms && rooms[i] && rooms[i] != src)
 		i++;
-	i++;
-	if (!(new = (t_room**)malloc(sizeof(t_room*) * (i + 1))))
-		lem_in_error(DEFAULT, data);
-	i--;
-	new[i] = to;
-	new[i + 1] = NULL;
-	while (--i >= 0)
-		new[i] = (*pipe)[i];
-	ft_memdel((void**)pipe);
-	*pipe = new;
+	if (rooms[i])
+		return (i);
+	else
+		return (-1);
 }

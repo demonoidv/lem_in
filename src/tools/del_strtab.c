@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map.c                                         :+:      :+:    :+:   */
+/*   del_strtab.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vsporer <vsporer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/01 20:08:13 by vsporer           #+#    #+#             */
-/*   Updated: 2017/12/12 16:37:08 by vsporer          ###   ########.fr       */
+/*   Created: 2017/12/12 15:43:39 by vsporer           #+#    #+#             */
+/*   Updated: 2017/12/16 19:52:52 by vsporer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
+#include "parser_lem_in.h"
 
-void	read_map(t_data *data)
+void	del_strtab(char ***tab)
 {
-	char	*line;
+	int		i;
 
-	line = NULL;
-	data->input = NULL;
-	while (get_next_line(0, &line) > 0 && !check_in(line, data))
-	{
-		if (ft_strtabadd(&(data->input), line))
-		{
-			ft_strdel(&line);
-			lem_in_error(DEFAULT, data);
-		}
-		line = NULL;
-	}
-	ft_strdel(&line);
+	i = -1;
+	while (*tab && (*tab)[++i])
+		ft_strdel(&((*tab)[i]));
+	ft_memdel((void**)tab);
 }

@@ -6,7 +6,7 @@
 #    By: vsporer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/15 15:51:49 by vsporer           #+#    #+#              #
-#    Updated: 2017/11/27 14:43:04 by vsporer          ###   ########.fr        #
+#    Updated: 2017/12/12 19:19:00 by vsporer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -148,39 +148,39 @@ CCI =			-I includes/
 all: $(NAME)
 
 $(NAME) : $(OBJ)
-	@echo "Compiling libft.a ..."
+	@echo "Compiling libft.a ...\033[K"
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 	@echo "\033[32mDone !\033[0m"
 
 $(PATH_OBJ)%.o : $(PATH_BASE)%.c
 	@mkdir -p $(@D)
-	@echo "\033[36mCompiling $< to $@\033[0m"
+	@echo "\033[36mCompiling $@\033[0m\033[K\033[1A\r"
 	@$(CC) $(CCI) -c $< -o $@
 
 $(PATH_OBJ)%.o : $(PATH_GNL)%.c
 	@mkdir -p $(@D)
-	@echo "\033[1;34mCompiling $< to $@\033[0m"
+	@echo "\033[1;34mCompiling $@\033[0m\033[K\033[1A\r"
 	@$(CC) $(CCI) -c $< -o $@
 
 $(PATH_OBJ)%.o : $(PATH_FTPF_SRC)%.c
 	@mkdir -p $(@D)
-	@echo "\033[33mCompiling $< to $@\033[0m"
+	@echo "\033[33mCompiling $@\033[0m\033[K\033[1A\r"
 	@$(CC) $(CCI) -c $< -o $@
 
 $(PATH_OBJ)%.o : $(PATH_FTPF_ATT)%.c
 	@mkdir -p $(@D)
-	@echo "\033[33mCompiling $< to $@\033[0m"
+	@echo "\033[33mCompiling $@\033[0m\033[K\033[1A\r"
 	@$(CC) $(CCI) -c $< -o $@
 
 $(PATH_OBJ)%.o : $(PATH_FTPF_PF)%.c
 	@mkdir -p $(@D)
-	@echo "\033[33mCompiling $< to $@\033[0m"
+	@echo "\033[33mCompiling $@\033[0m\033[K\033[1A\r"
 	@$(CC) $(CCI) -c $< -o $@
 
 $(PATH_OBJ)%.o : $(PATH_FTPF_CNV)%.c
 	@mkdir -p $(@D)
-	@echo "\033[33mCompiling $< to $@\033[0m"
+	@echo "\033[33mCompiling $@\033[0m\033[K\033[1A\r"
 	@$(CC) $(CCI) -c $< -o $@
 
 

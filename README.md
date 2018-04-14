@@ -44,14 +44,14 @@ On a donc 3 parties :
 
 - Le tout entre-coupé de commentaires qui commencent par #
 
-Les noms de salle ne peuvent pas commencer par la lettre ‘L’ majuscule et ne peuvent pas contenir le caractère ‘-’.
+Les noms de salles ne peuvent pas commencer par la lettre ‘L’ majuscule et ne peuvent pas contenir le caractère ‘-’.
 
-Toute les salles doivent avoir un nom different.
+Toute les salles doivent avoir un nom différent.
 
 Les lignes commençant par un ## sont des commandes modifiant les propriétés de la ligne significative qui vient juste après.
 ##start indique l’entrée de la fourmilière et ##end la sortie.
 
-Toute commande inconnue sera considérer comme un commentaire.
+Toute commande inconnue sera considérée comme un commentaire.
 
 La première ligne non conforme ou vide entraîne la fin de l’acquisition de la fourmilière et son traitement normal avec les données déjà acquises.
 # Objectifs
@@ -66,7 +66,7 @@ On considère que les fourmis sont toutes dans la salle ##start au démarrage
 
 À chaque tour le programme peux déplacer chaque fourmi une seule fois et ce suivant un tube (la salle réceptrice doit être libre).
 
-À chaque tour le programme affiche une ligne montrant la destination des fourmis qui on bougées pendant le tour.
+À chaque tour le programme affiche une ligne montrant la destination des fourmis qui ont bougé pendant le tour.
 # Exemples
 Considérons le fichier test_map.txt comme définissant la fourmilière vu précédemment, en exécutant la commande:
 
@@ -131,13 +131,13 @@ Vous devriez avoir un retour ressemblant a ceci:
 	Lx-salle_a Ly-salle_b …
 Où x et y désigne le numéro de la fourmis en mouvement et salle_a et salle_b désigne la nom de la salle de destination de la fourmis.
 # Compilation (gcc ou clang)
-(Attention: ce projet à été réalisé pour Mac OS X Sierra, il pourrait y avoir des erreurs de compilation sur d'autre systèmes)
+(Attention: ce projet à été réalisé pour Mac OS X Sierra, il pourrait y avoir des erreurs de compilation sur d'autres systèmes)
 (Attention: ce projet a été réalisé avec la SDL2 (https://www.libsdl.org/download-2.0.php) ainsi que SDL2_ttf2.0 (https://www.libsdl.org/projects/SDL_ttf) et SDL2_gfx (http://www.ferzkopp.net/wordpress/2016/01/02/sdl_gfx-sdl2_gfx/), assurez vous de les avoir sur votre machine)
 
-Utilisez la commande suivant pour compiler les souces:
+Utilisez la commande suivante pour compiler les sources:
 
 	make
-l’exécutable lem-in sera créé a la racine du projet.
+l’exécutable lem-in sera créé à la racine du projet.
 ## Auteurs
 
 * **[Gregory Colletto](https://github.com/Gcol)**
